@@ -8,18 +8,28 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-
-    var states: [String]?
+class ViewController: UIViewController, PickerDataDelegate, StatePickerDelegate, CityPickerDelegate {
     
+    @IBOutlet var lblCity: UILabel!
+    @IBOutlet var btnChooseCity: UIButton!
     @IBOutlet var btnChooseState: UIButton!
     @IBOutlet var statePicker: UIPickerView!
+    @IBOutlet var cityPicker: UIPickerView!
+    
+    var pickerData: PickerData?
+    var statePickerData: StatePicker?
+    var cityPickerData: CityPicker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        states = ["Atlanta","California","New York"]
-        statePicker.delegate = self
-        statePicker.dataSource = self
+        pickerData = PickerData.init()
+        pickerData?.delegate = self
+        
+        statePickerData = StatePicker.init(picker: statePicker, pickerData: pickerData!)
+        statePickerData?.setDelegates(delegate: self)
+        
+        cityPickerData = CityPicker.init(picker: cityPicker, pickerData: pickerData!)
+        cityPickerData?.setDelegates(delegate: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,27 +37,39 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
 
     @IBAction func stateButtonPressed(_ sender: UIButton) {
+        self.lowerViewsHidden(hidden: true)
         statePicker.isHidden = false
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+    @IBAction func cityButtonPressed(_ sender: UIButton) {
+        self.lowerViewsHidden(hidden: true)
+        cityPicker.isHidden = false
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if let _ = states , let c = states?.count{
-            return c
+    func dataLoadingCompleted() {
+        btnChooseState.isEnabled = true
+        statePicker.reloadAllComponents()
+    }
+    
+    func selectedState(state: String) {
+        if let p = pickerData {
+            if (p.selectedState != state) {     // state is changed
+                p.selectedState = state
+                btnChooseState.setTitle(state, for: UIControlState.normal)
+                btnChooseCity.setTitle("Choose your city ...", for: UIControlState.normal)
+                cityPicker.reloadAllComponents()
+            }
         }
-        return 0
+        self.lowerViewsHidden(hidden: false)
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return states?[row]
+    func selectedCity(city: String) {
+        btnChooseCity.setTitle(city, for: UIControlState.normal)
+        self.lowerViewsHidden(hidden: false)
     }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        btnChooseState.setTitle(states?[row], for: UIControlState.normal)
-        pickerView.isHidden = true
+    
+    func lowerViewsHidden(hidden: Bool) {
+        lblCity.isHidden = hidden
+        btnChooseCity.isHidden = hidden
     }
 }
-

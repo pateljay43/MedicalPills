@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690D2C061ED14A8600364675 /* StatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690D2C051ED14A8600364675 /* StatePicker.swift */; };
+		690D2C081ED14A9100364675 /* CityPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690D2C071ED14A9100364675 /* CityPicker.swift */; };
+		699EEA051ED13C4F00C5C90C /* PickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699EEA041ED13C4F00C5C90C /* PickerData.swift */; };
 		69EB114A1ED0F044006CA794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EB11491ED0F044006CA794 /* AppDelegate.swift */; };
 		69EB114C1ED0F044006CA794 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EB114B1ED0F044006CA794 /* ViewController.swift */; };
 		69EB114F1ED0F044006CA794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69EB114D1ED0F044006CA794 /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		690D2C051ED14A8600364675 /* StatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatePicker.swift; sourceTree = "<group>"; };
+		690D2C071ED14A9100364675 /* CityPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityPicker.swift; sourceTree = "<group>"; };
+		699EEA041ED13C4F00C5C90C /* PickerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerData.swift; sourceTree = "<group>"; };
 		69EB11461ED0F044006CA794 /* MiraclePill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiraclePill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69EB11491ED0F044006CA794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69EB114B1ED0F044006CA794 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +66,9 @@
 				69EB11501ED0F045006CA794 /* Assets.xcassets */,
 				69EB11521ED0F045006CA794 /* LaunchScreen.storyboard */,
 				69EB11551ED0F045006CA794 /* Info.plist */,
+				699EEA041ED13C4F00C5C90C /* PickerData.swift */,
+				690D2C051ED14A8600364675 /* StatePicker.swift */,
+				690D2C071ED14A9100364675 /* CityPicker.swift */,
 			);
 			path = MiraclePill;
 			sourceTree = "<group>";
@@ -137,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690D2C081ED14A9100364675 /* CityPicker.swift in Sources */,
 				69EB114C1ED0F044006CA794 /* ViewController.swift in Sources */,
 				69EB114A1ED0F044006CA794 /* AppDelegate.swift in Sources */,
+				699EEA051ED13C4F00C5C90C /* PickerData.swift in Sources */,
+				690D2C061ED14A8600364675 /* StatePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +316,7 @@
 				69EB115A1ED0F045006CA794 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
